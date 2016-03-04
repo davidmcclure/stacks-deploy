@@ -1,0 +1,19 @@
+---
+
+- name: Install Supervisor
+  become: yes
+  apt:
+    pkg: supervisor
+    update_cache: yes
+    state: latest
+
+- name: Push the program configs
+  become: yes
+  template:
+    src: program.conf.j2
+    dest: /etc/supervisor/conf.d/{{ item.name }}.conf
+  with_items: '{{ supervisor_programs }}'
+
+- name: Reload supervisor
+  become: yes
+  command: supervisorctl reload

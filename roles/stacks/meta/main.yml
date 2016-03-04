@@ -1,0 +1,54 @@
+---
+
+dependencies:
+
+
+  - role: data
+
+
+  - role: postgresql
+    tags: postgresql
+    become: yes
+
+    postgresql_version: 9.5
+
+    postgresql_databases:
+
+      - name: '{{ stacks_db_name }}'
+
+    postgresql_users:
+
+      - name: '{{ stacks_db_user }}'
+        pass: '{{ stacks_db_pass }}'
+
+    postgresql_user_privileges:
+
+      - name: '{{ stacks_db_user }}'
+        db:   '{{ stacks_db_name }}'
+
+        priv: 'ALL'
+        role_attr_flags: 'CREATEDB'
+
+
+  - role: supervisor
+    tags: supervisor
+
+    supervisor_programs:
+
+      - name: stacks-prod
+        command: '{{ stacks_src }}/env/bin/start-prod'
+        directory: '{{ stacks_src }}'
+
+      - name: stacks-dev
+        command: '{{ stacks_src }}/env/bin/start-dev'
+        autostart: false
+
+
+  - role: nginx
+    tags: nginx
+
+    nginx_sites:
+
+      - server_name: localhost
+        static_root: '{{ stacks_src }}'
+        socket: '{{ stacks_socket }}'

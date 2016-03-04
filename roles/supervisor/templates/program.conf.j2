@@ -1,0 +1,12 @@
+
+[program:{{ item.name }}]
+
+command={{ item.command }}
+
+stopasgroup={{ item.stopasgroup | default(true) }}
+
+autostart={{ item.autostart | default(true) }}
+
+{% if item.directory is defined %}
+directory={{ item.directory }}
+{% endif %}

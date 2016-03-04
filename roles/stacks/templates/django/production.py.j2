@@ -1,0 +1,15 @@
+
+
+from .base import *
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '{{ stacks_db_name }}',
+        'USER': '{{ stacks_db_user }}',
+        'PASSWORD': '{{ stacks_db_pass }}',
+    }
+}
+
+STATIC_ROOT = '{{ stacks_src }}/static'

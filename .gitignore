@@ -1,0 +1,8 @@
+
+/.vagrant
+/env
+
+/vars/local.yml
+/ansible.cfg
+
+*.retry

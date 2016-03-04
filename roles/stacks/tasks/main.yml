@@ -1,0 +1,62 @@
+---
+
+- name: Install Django dependencies
+  become: yes
+  apt:
+    pkg: '{{ item }}'
+    update_cache: yes
+    state: latest
+  with_items:
+    - git
+    - python-virtualenv
+    - libpq-dev
+    - python3-dev
+
+- name: Create the Django app directory
+  become: yes
+  file:
+    path: '{{ stacks_src }}'
+    group: '{{ ansible_ssh_user }}'
+    owner: '{{ ansible_ssh_user }}'
+    state: directory
+
+- name: Pull the source code
+  git:
+    repo: '{{ stacks_repo }}'
+    version: '{{ stacks_branch }}'
+    dest: '{{ stacks_src }}'
+    accept_hostkey: yes
+
+- name: Install pip dependencies
+  pip:
+    requirements: '{{ stacks_src }}/requirements.txt'
+    virtualenv: '{{ stacks_src }}/env'
+    virtualenv_python: python3
+    state: latest
+
+- name: Push the Django settings
+  template:
+    src: django/production.py.j2
+    dest: '{{ stacks_src }}/stacks/settings/production.py'
+
+- name: Run migrations
+  django_manage:
+    app_path: '{{ stacks_src }}'
+    virtualenv: '{{ stacks_src }}/env'
+    command: migrate
+
+- name: Collect static assets
+  django_manage:
+    app_path: '{{ stacks_src }}'
+    virtualenv: '{{ stacks_src }}/env'
+    command: collectstatic
+
+- name: Push Gunicorn startup scripts
+  notify: reload supervisor
+  template:
+    src: supervisor/{{ item }}.j2
+    dest: '{{ stacks_src }}/env/bin/{{ item }}'
+    mode: 0755
+  with_items:
+    - start-prod
+    - start-dev

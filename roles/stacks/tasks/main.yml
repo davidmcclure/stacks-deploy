@@ -52,7 +52,6 @@
     command: collectstatic
 
 - name: Push Gunicorn startup scripts
-  notify: reload supervisor
   template:
     src: supervisor/{{ item }}.j2
     dest: '{{ stacks_src }}/env/bin/{{ item }}'

@@ -23,14 +23,9 @@
 
 - name: Enable the Nginx configuration
   become: yes
+  notify: restart nginx
   file:
     src: /etc/nginx/sites-available/{{ item.server_name }}
     dest: /etc/nginx/sites-enabled/{{ item.server_name }}
     state: link
   with_items: '{{ nginx_sites }}'
-
-- name: Restart nginx
-  become: yes
-  service:
-    name: nginx
-    state: restarted

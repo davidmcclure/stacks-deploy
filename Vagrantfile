@@ -2,6 +2,8 @@
 # vi: set ft=ruby :
 
 require 'yaml'
+
+# Load local overrides.
 local = YAML.load_file('vars/local.yml')
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -75,12 +77,12 @@ Vagrant.configure(2) do |config|
 
   config.ssh.forward_agent = true
 
-  # 2g of ram, for Nutch.
+  # 2g of ram.
   config.vm.provider 'virtualbox' do |v|
     v.memory = 2048
   end
 
-  # Forward Django -> 8000.
+  # Forward Django -> 8000 (dev on 8001).
   config.vm.define 'web' do |box|
     box.vm.network 'forwarded_port', host: 8000, guest: 80
     box.vm.network 'forwarded_port', host: 8001, guest: 8001
@@ -106,7 +108,7 @@ Vagrant.configure(2) do |config|
     create: true
   )
 
-  # Sync Nutch data.
+  # Sync data.
   config.vm.synced_folder(
     local['stacks_sync_data'],
     '/data',

@@ -9,8 +9,10 @@
   with_items:
     - git
     - python-virtualenv
-    - libpq-dev
     - python3-dev
+    - libpq-dev
+    - libxslt1-dev
+    - libxml2-dev
 
 - name: Create the Django app directory
   become: yes

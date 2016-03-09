@@ -3,8 +3,8 @@
 dependencies:
 
 
-  - role: redis
   - role: data
+  - role: redis
 
 
   - role: postgresql

@@ -3,6 +3,7 @@
 dependencies:
 
 
+  - role: redis
   - role: data
 
 

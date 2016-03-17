@@ -44,6 +44,11 @@ dependencies:
         command: '{{ stacks_src }}/env/bin/start-dev'
         autostart: false
 
+      - name: rqworker
+        command: '{{ stacks_src }}/env/bin/start-rqworker'
+        numprocs: '{{ stack_rqworker_count }}'
+        autostart: false
+
 
   - role: nginx
     tags: nginx

@@ -10,3 +10,8 @@ autostart={{ item.autostart | default(true) }}
 {% if item.directory is defined %}
 directory={{ item.directory }}
 {% endif %}
+
+{% if item.numprocs is defined %}
+numprocs={{ item.numprocs }}
+process_name=%(program_name)s_%(process_num)02d
+{% endif %}

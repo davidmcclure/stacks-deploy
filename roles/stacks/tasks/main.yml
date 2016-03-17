@@ -62,3 +62,4 @@
   with_items:
     - start-prod
     - start-dev
+    - start-rqworker

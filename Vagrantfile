@@ -79,7 +79,7 @@ Vagrant.configure(2) do |config|
 
   # 2g of ram.
   config.vm.provider 'virtualbox' do |v|
-    v.memory = 2048
+    v.memory = 4096
   end
 
   # Forward Django -> 8000 (dev on 8001).

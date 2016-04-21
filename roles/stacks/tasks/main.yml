@@ -39,8 +39,11 @@
 
 - name: Push the Django settings
   template:
-    src: django/production.py.j2
-    dest: '{{ stacks_src }}/stacks/settings/production.py'
+    src: django/{{ item }}.py.j2
+    dest: '{{ stacks_src }}/stacks/settings/{{ item }}.py'
+  with_items:
+    - production
+    - test
 
 - name: Run migrations
   django_manage:

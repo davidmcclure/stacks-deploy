@@ -63,12 +63,10 @@
   args:
     chdir: '{{ stacks_src }}'
 
-#- name: Push Gunicorn startup scripts
-  #template:
-    #src: supervisor/{{ item }}.j2
-    #dest: '{{ stacks_src }}/env/bin/{{ item }}'
-    #mode: 0755
-  #with_items:
-    #- start-prod
-    #- start-dev
-    #- start-rqworker
+- name: Push startup scripts
+  template:
+    src: supervisor/{{ item }}.j2
+    dest: '{{ stacks_src }}/env/bin/{{ item }}'
+    mode: 0755
+  with_items:
+    - start-rqworker

@@ -6,4 +6,4 @@ stacks_branch: master
 stacks_src: /opt/stacks
 stacks_socket: /var/run/stacks.sock
 
-stack_rqworker_count: 8
+stacks_rqworker_count: 8

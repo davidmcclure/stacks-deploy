@@ -32,10 +32,10 @@ dependencies:
         role_attr_flags: 'CREATEDB'
 
 
-  #- role: supervisor
-    #tags: supervisor
+  - role: supervisor
+    tags: supervisor
 
-    #supervisor_programs:
+    supervisor_programs:
 
       #- name: stacks-prod
         #command: '{{ stacks_src }}/env/bin/start-prod'
@@ -45,10 +45,10 @@ dependencies:
         #command: '{{ stacks_src }}/env/bin/start-dev'
         #autostart: false
 
-      #- name: rqworker
-        #command: '{{ stacks_src }}/env/bin/start-rqworker'
-        #numprocs: '{{ stack_rqworker_count }}'
-        #autostart: false
+      - name: rqworker
+        command: '{{ stacks_src }}/env/bin/start-rqworker'
+        numprocs: '{{ stacks_rqworker_count }}'
+        autostart: false
 
 
   #- role: nginx

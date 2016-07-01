@@ -1,5 +1,4 @@
 #!/bin/sh
 
 # Start a worker process
-exec {{ stacks_src }}/env/bin/python \
-  {{ stacks_src }}/manage.py rqworker
+exec {{ stacks_src }}/env/bin/rqworker

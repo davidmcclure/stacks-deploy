@@ -37,6 +37,10 @@ dependencies:
 
     supervisor_programs:
 
+      - name: stacks-manager
+        command: '{{ stacks_src }}/env/bin/start-manager'
+        autostart: false
+
       - name: stacks-queue
         command: '{{ stacks_src }}/env/bin/start-queue'
         autostart: false
@@ -52,5 +56,8 @@ dependencies:
 
     nginx_sites:
 
-      - server_name: localhost
+      - server_name: manager.stacks.dev
+        socket: '{{ stacks_manager_socket }}'
+
+      - server_name: queue.stacks.dev
         socket: '{{ stacks_queue_socket }}'

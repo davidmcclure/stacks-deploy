@@ -6,5 +6,6 @@ stacks_branch: master
 stacks_src: /opt/stacks
 
 stacks_queue_socket: /var/run/stacks-queue.sock
+stacks_manager_socket: /var/run/stacks-manager.sock
 
 stacks_rqworker_count: 8

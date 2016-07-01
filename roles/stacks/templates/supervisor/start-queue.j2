@@ -7,4 +7,4 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 # Start Gunicorn.
 exec {{ stacks_src }}/env/bin/gunicorn \
   --bind unix:{{ stacks_queue_socket }} \
-  stacks.queue.app:app
+  stacks.queue:app

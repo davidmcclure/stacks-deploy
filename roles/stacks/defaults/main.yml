@@ -4,6 +4,7 @@ stacks_repo: git@github.com:davidmcclure/stacks.git
 stacks_branch: master
 
 stacks_src: /opt/stacks
-stacks_socket: /var/run/stacks.sock
+
+stacks_queue_socket: /var/run/stacks-queue.sock
 
 stacks_rqworker_count: 8

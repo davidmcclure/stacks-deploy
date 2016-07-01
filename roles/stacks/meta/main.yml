@@ -37,13 +37,9 @@ dependencies:
 
     supervisor_programs:
 
-      #- name: stacks-prod
-        #command: '{{ stacks_src }}/env/bin/start-prod'
-        #directory: '{{ stacks_src }}'
-
-      #- name: stacks-dev
-        #command: '{{ stacks_src }}/env/bin/start-dev'
-        #autostart: false
+      - name: stacks-queue
+        command: '{{ stacks_src }}/env/bin/start-queue'
+        autostart: false
 
       - name: rqworker
         command: '{{ stacks_src }}/env/bin/start-rqworker'
@@ -51,11 +47,10 @@ dependencies:
         autostart: false
 
 
-  #- role: nginx
-    #tags: nginx
+  - role: nginx
+    tags: nginx
 
-    #nginx_sites:
+    nginx_sites:
 
-      #- server_name: localhost
-        #static_root: '{{ stacks_src }}'
-        #socket: '{{ stacks_socket }}'
+      - server_name: localhost
+        socket: '{{ stacks_queue_socket }}'

@@ -70,3 +70,4 @@
     mode: 0755
   with_items:
     - start-rqworker
+    - start-queue

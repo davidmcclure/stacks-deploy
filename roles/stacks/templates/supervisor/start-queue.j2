@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Ensure the run directory.
-RUNDIR=$(dirname {{ stacks_socket }})
+RUNDIR=$(dirname {{ stacks_queue_socket }})
 test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start Gunicorn.
 exec {{ stacks_src }}/env/bin/gunicorn \
-  --bind unix:{{ stacks_socket }} \
-  stacks.wsgi:application
+  --bind unix:{{ stacks_queue_socket }} \
+  stacks.queue.app:app

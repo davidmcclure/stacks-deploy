@@ -23,6 +23,14 @@
     owner: '{{ ansible_ssh_user }}'
     state: directory
 
+- name: Create the config directory
+  become: yes
+  file:
+    path: /etc/stacks
+    group: '{{ ansible_ssh_user }}'
+    owner: '{{ ansible_ssh_user }}'
+    state: directory
+
 - name: Pull the source code
   git:
     repo: '{{ stacks_repo }}'
@@ -37,15 +45,13 @@
     virtualenv_python: python3
     state: latest
 
-# TODO: push YAML configs
-
-#- name: Push the Django settings
-  #template:
-    #src: django/{{ item }}.py.j2
-    #dest: '{{ stacks_src }}/stacks/settings/{{ item }}.py'
-  #with_items:
-    #- production
-    #- test
+- name: Push the config files
+  template:
+    src: stacks/{{ item }}.yml.j2
+    dest: /etc/stacks/{{ item }}.yml
+  with_items:
+    - stacks
+    - stacks.test
 
 # TODO: alembic migrations
 

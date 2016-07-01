@@ -38,13 +38,6 @@
     dest: '{{ stacks_src }}'
     accept_hostkey: yes
 
-- name: Install pip dependencies
-  pip:
-    requirements: '{{ stacks_src }}/requirements.txt'
-    virtualenv: '{{ stacks_src }}/env'
-    virtualenv_python: python3
-    state: latest
-
 - name: Push the config files
   template:
     src: stacks/{{ item }}.yml.j2
@@ -53,13 +46,22 @@
     - stacks
     - stacks.test
 
-# TODO: alembic migrations
+- name: Install pip dependencies
+  pip:
+    requirements: '{{ stacks_src }}/requirements.txt'
+    virtualenv: '{{ stacks_src }}/env'
+    virtualenv_python: python3
+    state: latest
 
-#- name: Run migrations
-  #django_manage:
-    #app_path: '{{ stacks_src }}'
-    #virtualenv: '{{ stacks_src }}/env'
-    #command: migrate
+- name: Install the package
+  command: env/bin/python setup.py develop
+  args:
+    chdir: '{{ stacks_src }}'
+
+- name: Migrate the database
+  command: env/bin/alembic upgrade head
+  args:
+    chdir: '{{ stacks_src }}'
 
 #- name: Push Gunicorn startup scripts
   #template:

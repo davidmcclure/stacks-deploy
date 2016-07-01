@@ -2,8 +2,8 @@
 
 # *** Vagrant ***
 
-# Local path for synced Django code.
-stacks_sync_web: XXX
+# Local path for synced code.
+stacks_sync_code: XXX
 
 # Local path for synced data.
 stacks_sync_data: XXX

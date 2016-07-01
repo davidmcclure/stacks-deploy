@@ -1,6 +1,6 @@
 ---
 
-- name: Install Django dependencies
+- name: Install Python dependencies
   become: yes
   apt:
     pkg: '{{ item }}'
@@ -15,7 +15,7 @@
     - libxslt1-dev
     - libxml2-dev
 
-- name: Create the Django app directory
+- name: Create the project directory
   become: yes
   file:
     path: '{{ stacks_src }}'
@@ -37,32 +37,30 @@
     virtualenv_python: python3
     state: latest
 
-- name: Push the Django settings
-  template:
-    src: django/{{ item }}.py.j2
-    dest: '{{ stacks_src }}/stacks/settings/{{ item }}.py'
-  with_items:
-    - production
-    - test
+# TODO: push YAML configs
 
-- name: Run migrations
-  django_manage:
-    app_path: '{{ stacks_src }}'
-    virtualenv: '{{ stacks_src }}/env'
-    command: migrate
+#- name: Push the Django settings
+  #template:
+    #src: django/{{ item }}.py.j2
+    #dest: '{{ stacks_src }}/stacks/settings/{{ item }}.py'
+  #with_items:
+    #- production
+    #- test
 
-- name: Collect static assets
-  django_manage:
-    app_path: '{{ stacks_src }}'
-    virtualenv: '{{ stacks_src }}/env'
-    command: collectstatic
+# TODO: alembic migrations
 
-- name: Push Gunicorn startup scripts
-  template:
-    src: supervisor/{{ item }}.j2
-    dest: '{{ stacks_src }}/env/bin/{{ item }}'
-    mode: 0755
-  with_items:
-    - start-prod
-    - start-dev
-    - start-rqworker
+#- name: Run migrations
+  #django_manage:
+    #app_path: '{{ stacks_src }}'
+    #virtualenv: '{{ stacks_src }}/env'
+    #command: migrate
+
+#- name: Push Gunicorn startup scripts
+  #template:
+    #src: supervisor/{{ item }}.j2
+    #dest: '{{ stacks_src }}/env/bin/{{ item }}'
+    #mode: 0755
+  #with_items:
+    #- start-prod
+    #- start-dev
+    #- start-rqworker

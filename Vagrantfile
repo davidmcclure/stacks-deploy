@@ -103,7 +103,7 @@ Vagrant.configure(2) do |config|
 
   # Sync Django code.
   config.vm.synced_folder(
-    local['stacks_sync_web'],
+    local['stacks_sync_code'],
     '/opt/stacks',
     create: true
   )

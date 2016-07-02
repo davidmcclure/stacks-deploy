@@ -82,11 +82,16 @@ Vagrant.configure(2) do |config|
     v.memory = 4096
   end
 
-  # Forward Django -> 8000 (dev on 8001).
   config.vm.define 'web' do |box|
-    box.vm.network :forwarded_port, host: 8000, guest: 80
-    box.vm.network :forwarded_port, host: 8001, guest: 8001
+
+    # Forward ports.
+    for i in 8000..8010
+      box.vm.network :forwarded_port, host: i, guest: i
+    end
+
+    # Assign IP for /etc/hosts.
     box.vm.network :private_network, ip: '192.168.68.8'
+
   end
 
   # Generate Ansible inventory.

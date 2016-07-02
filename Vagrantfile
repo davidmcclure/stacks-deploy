@@ -83,9 +83,9 @@ Vagrant.configure(2) do |config|
   end
 
   # Forward Django -> 8000 (dev on 8001).
-  config.vm.define 'web' do |box|
-    box.vm.network 'forwarded_port', host: 8000, guest: 80
-    box.vm.network 'forwarded_port', host: 8001, guest: 8001
+  config.vm.define :web do |box|
+    box.vm.network :forwarded_port, host: 8000, guest: 80
+    box.vm.network :forwarded_port, host: 8001, guest: 8001
   end
 
   # Generate Ansible inventory.
@@ -103,7 +103,7 @@ Vagrant.configure(2) do |config|
 
   # Sync Django code.
   config.vm.synced_folder(
-    local['stacks_sync_web'],
+    local['stacks_sync_code'],
     '/opt/stacks',
     create: true
   )

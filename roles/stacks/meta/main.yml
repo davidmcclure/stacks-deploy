@@ -37,27 +37,15 @@ dependencies:
 
     supervisor_programs:
 
-      - name: stacks-manager
-        command: '{{ stacks_src }}/env/bin/start-manager'
+      - name: stacks-manager-dev
+        command: '{{ stacks_src }}/env/bin/start-manager-dev'
         autostart: false
 
-      - name: stacks-queue
-        command: '{{ stacks_src }}/env/bin/start-queue'
+      - name: stacks-queue-dev
+        command: '{{ stacks_src }}/env/bin/start-queue-dev'
         autostart: false
 
       - name: rqworker
         command: '{{ stacks_src }}/env/bin/start-rqworker'
         numprocs: '{{ stacks_rqworker_count }}'
         autostart: false
-
-
-  - role: nginx
-    tags: nginx
-
-    nginx_sites:
-
-      - server_name: manager.stacks.dev
-        socket: '{{ stacks_manager_socket }}'
-
-      - server_name: queue.stacks.dev
-        socket: '{{ stacks_queue_socket }}'

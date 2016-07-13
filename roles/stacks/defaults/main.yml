@@ -6,3 +6,6 @@ stacks_branch: master
 stacks_src: /opt/stacks
 
 stacks_rqworker_count: 8
+
+stacks_manager_dev_port: 8000
+stacks_queue_dev_port: 8001

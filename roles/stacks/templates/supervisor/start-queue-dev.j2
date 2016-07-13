@@ -1,3 +1,4 @@
 #!/bin/sh
 
-PORT=8001 exec {{ stacks_src }}/env/bin/python -m stacks.queue
+PORT={{ stacks_queue_dev_port }} \
+  exec {{ stacks_src }}/env/bin/python -m stacks.queue

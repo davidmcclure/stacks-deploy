@@ -1,3 +1,4 @@
 #!/bin/sh
 
-PORT=8000 exec {{ stacks_src }}/env/bin/python -m stacks.manager
+PORT={{ stacks_manager_dev_port }} \
+  exec {{ stacks_src }}/env/bin/python -m stacks.manager

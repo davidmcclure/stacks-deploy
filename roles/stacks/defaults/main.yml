@@ -15,12 +15,10 @@ stacks_queue_dev_port: 8001
 # Supervisor commands:
 
 stacks_start_manager_dev: >
-  PORT={{ stacks_manager_dev_port }}
   {{ stacks_src }}/env/bin/python
   -m stacks.manager
 
 stacks_start_queue_dev: >
-  PORT={{ stacks_queue_dev_port }}
   {{ stacks_src }}/env/bin/python
   -m stacks.queue
 

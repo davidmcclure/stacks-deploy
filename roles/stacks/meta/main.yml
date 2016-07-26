@@ -45,9 +45,13 @@ dependencies:
 
       - name: stacks-manager-dev
         command: '{{ stacks_start_manager_dev }}'
+        config:
+          environment: PORT={{ stacks_manager_dev_port }}
 
       - name: stacks-queue-dev
         command: '{{ stacks_start_queue_dev }}'
+        config:
+          environment: PORT={{ stacks_queue_dev_port }}
 
       - name: rqworker
         command: '{{ stacks_start_rqworker }}'

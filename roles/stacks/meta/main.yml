@@ -44,12 +44,12 @@ dependencies:
     supervisor_programs:
 
       - name: stacks-manager-dev
-        command: '{{ stacks_src }}/env/bin/start-manager-dev'
+        command: '{{ stacks_start_manager_dev }}'
 
       - name: stacks-queue-dev
-        command: '{{ stacks_src }}/env/bin/start-queue-dev'
+        command: '{{ stacks_start_queue_dev }}'
 
       - name: rqworker
-        command: '{{ stacks_src }}/env/bin/start-rqworker'
+        command: '{{ stacks_start_rqworker }}'
         config:
           numprocs: '{{ stacks_rqworker_count }}'

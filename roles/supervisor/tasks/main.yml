@@ -9,8 +9,11 @@
 
 - name: Push the program configs
   become: yes
-  notify: reload supervisor
   template:
     src: program.conf.j2
     dest: /etc/supervisor/conf.d/{{ item.name }}.conf
   with_items: '{{ supervisor_programs }}'
+
+- name: Reload programs
+  become: yes
+  command: supervisorctl reload

@@ -62,13 +62,3 @@
   command: env/bin/alembic upgrade head
   args:
     chdir: '{{ stacks_src }}'
-
-- name: Push startup scripts
-  template:
-    src: supervisor/{{ item }}.j2
-    dest: '{{ stacks_src }}/env/bin/{{ item }}'
-    mode: 0755
-  with_items:
-    - start-manager-dev
-    - start-queue-dev
-    - start-rqworker

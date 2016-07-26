@@ -3,15 +3,12 @@
 
 command={{ item.command }}
 
-stopasgroup={{ item.stopasgroup | default(true) }}
+{% set config = item.config | default({}) %}
 
-autostart={{ item.autostart | default(true) }}
+{% for key, val in (supervisor_config | combine(config)).items() %}
+{{ key }}={{ val }}
+{% endfor %}
 
-{% if item.directory is defined %}
-directory={{ item.directory }}
-{% endif %}
-
-{% if item.numprocs is defined %}
-numprocs={{ item.numprocs }}
+{% if config.numprocs is defined and config.numprocs > 1 %}
 process_name=%(program_name)s_%(process_num)02d
 {% endif %}

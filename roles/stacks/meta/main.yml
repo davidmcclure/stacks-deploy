@@ -32,6 +32,11 @@ dependencies:
         priv: 'ALL'
         role_attr_flags: 'CREATEDB'
 
+    postgresql_database_extensions:
+      - db: '{{ stacks_db_name }}'
+        extensions:
+          - pgcrypto
+
 
   - role: supervisor
     tags: supervisor
@@ -40,13 +45,11 @@ dependencies:
 
       - name: stacks-manager-dev
         command: '{{ stacks_src }}/env/bin/start-manager-dev'
-        autostart: false
 
       - name: stacks-queue-dev
         command: '{{ stacks_src }}/env/bin/start-queue-dev'
-        autostart: false
 
       - name: rqworker
         command: '{{ stacks_src }}/env/bin/start-rqworker'
-        numprocs: '{{ stacks_rqworker_count }}'
-        autostart: false
+        config:
+          numprocs: '{{ stacks_rqworker_count }}'

@@ -5,5 +5,4 @@ supervisor_reset_programs: false
 supervisor_programs: []
 
 supervisor_config:
-  environment: LC_ALL="C.UTF-8",LANG="C.UTF-8"
   autostart: false

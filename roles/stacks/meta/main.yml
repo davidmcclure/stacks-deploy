@@ -4,6 +4,7 @@ dependencies:
 
 
   - role: data
+
   - role: redis
 
 
@@ -16,6 +17,7 @@ dependencies:
     postgresql_databases:
 
       - name: '{{ stacks_db_name }}'
+      - name: '{{ stacks_test_db_name }}'
 
     postgresql_users:
 
@@ -30,31 +32,25 @@ dependencies:
         priv: 'ALL'
         role_attr_flags: 'CREATEDB'
 
+    postgresql_database_extensions:
+      - db: '{{ stacks_db_name }}'
+        extensions:
+          - pgcrypto
+
 
   - role: supervisor
     tags: supervisor
 
     supervisor_programs:
 
-      - name: stacks-prod
-        command: '{{ stacks_src }}/env/bin/start-prod'
-        directory: '{{ stacks_src }}'
+      - name: stacks-manager-dev
+        command: '{{ stacks_start_manager_dev }}'
+        environment: PORT={{ stacks_manager_dev_port }}
 
-      - name: stacks-dev
-        command: '{{ stacks_src }}/env/bin/start-dev'
-        autostart: false
+      - name: stacks-queue-dev
+        command: '{{ stacks_start_queue_dev }}'
+        environment: PORT={{ stacks_queue_dev_port }}
 
       - name: rqworker
-        command: '{{ stacks_src }}/env/bin/start-rqworker'
-        numprocs: '{{ stack_rqworker_count }}'
-        autostart: false
-
-
-  - role: nginx
-    tags: nginx
-
-    nginx_sites:
-
-      - server_name: localhost
-        static_root: '{{ stacks_src }}'
-        socket: '{{ stacks_socket }}'
+        command: '{{ stacks_start_rqworker }}'
+        numprocs: '{{ stacks_rqworker_count }}'

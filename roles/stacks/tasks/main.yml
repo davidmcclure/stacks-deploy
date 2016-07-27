@@ -1,6 +1,6 @@
 ---
 
-- name: Install Django dependencies
+- name: Install Python dependencies
   become: yes
   apt:
     pkg: '{{ item }}'
@@ -15,10 +15,18 @@
     - libxslt1-dev
     - libxml2-dev
 
-- name: Create the Django app directory
+- name: Create the project directory
   become: yes
   file:
     path: '{{ stacks_src }}'
+    group: '{{ ansible_ssh_user }}'
+    owner: '{{ ansible_ssh_user }}'
+    state: directory
+
+- name: Create the config directory
+  become: yes
+  file:
+    path: /etc/stacks
     group: '{{ ansible_ssh_user }}'
     owner: '{{ ansible_ssh_user }}'
     state: directory
@@ -30,6 +38,14 @@
     dest: '{{ stacks_src }}'
     accept_hostkey: yes
 
+- name: Push the config files
+  template:
+    src: stacks/{{ item }}.yml.j2
+    dest: /etc/stacks/{{ item }}.yml
+  with_items:
+    - stacks
+    - stacks.test
+
 - name: Install pip dependencies
   pip:
     requirements: '{{ stacks_src }}/requirements.txt'
@@ -37,32 +53,12 @@
     virtualenv_python: python3
     state: latest
 
-- name: Push the Django settings
-  template:
-    src: django/{{ item }}.py.j2
-    dest: '{{ stacks_src }}/stacks/settings/{{ item }}.py'
-  with_items:
-    - production
-    - test
+- name: Install the package
+  command: env/bin/python setup.py develop
+  args:
+    chdir: '{{ stacks_src }}'
 
-- name: Run migrations
-  django_manage:
-    app_path: '{{ stacks_src }}'
-    virtualenv: '{{ stacks_src }}/env'
-    command: migrate
-
-- name: Collect static assets
-  django_manage:
-    app_path: '{{ stacks_src }}'
-    virtualenv: '{{ stacks_src }}/env'
-    command: collectstatic
-
-- name: Push Gunicorn startup scripts
-  template:
-    src: supervisor/{{ item }}.j2
-    dest: '{{ stacks_src }}/env/bin/{{ item }}'
-    mode: 0755
-  with_items:
-    - start-prod
-    - start-dev
-    - start-rqworker
+- name: Migrate the database
+  command: env/bin/alembic upgrade head
+  args:
+    chdir: '{{ stacks_src }}'

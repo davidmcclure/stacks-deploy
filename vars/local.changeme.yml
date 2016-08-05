@@ -1,26 +1,7 @@
 ---
 
-# *** Vagrant ***
-
 # Local path for synced code.
 stacks_sync_code: XXX
 
 # Local path for synced data.
 stacks_sync_data: XXX
-
-# *** EC2 ***
-
-# VPC subnet to house the instances.
-ec2_subnet: subnet-XXX
-
-# AWS keypair to use when creating instances.
-ec2_keypair: XXX
-
-# ID of the EBS snapshot.
-ec2_stacks_snapshot: snap-XXX
-
-# A context-specific EC2 instance tag.
-ec2_context: XXX
-
-# Other local overrides:
-# ...

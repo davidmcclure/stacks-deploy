@@ -3,4 +3,9 @@
 stacks_repo: git@github.com:davidmcclure/stacks.git
 stacks_branch: master
 
-stacks_src_dir: /opt/stacks
+stacks_dirs.src: /opt/stacks
+
+stacks_dirs:
+  src: /opt/stacks
+  raw: /var/stacks/raw
+  ext: /var/stacks/ext

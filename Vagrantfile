@@ -115,7 +115,7 @@ Vagrant.configure(2) do |config|
   # Sync data.
   config.vm.synced_folder(
     local['stacks_sync_data'],
-    '/data',
+    '/var/stacks',
     create: true
   )
 

@@ -1,6 +1,6 @@
 ---
 
-- name: Configure a Django box
+- name: Deploy a Vagrant box
 
   vars_files:
     - vars/local.yml

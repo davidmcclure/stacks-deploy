@@ -18,7 +18,7 @@
 - name: Create the project directory
   become: yes
   file:
-    path: '{{ stacks_src }}'
+    path: '{{ stacks_src_dir }}'
     group: '{{ ansible_ssh_user }}'
     owner: '{{ ansible_ssh_user }}'
     state: directory
@@ -35,7 +35,7 @@
   git:
     repo: '{{ stacks_repo }}'
     version: '{{ stacks_branch }}'
-    dest: '{{ stacks_src }}'
+    dest: '{{ stacks_src_dir }}'
     accept_hostkey: yes
 
 - name: Push the config files
@@ -48,17 +48,12 @@
 
 - name: Install pip dependencies
   pip:
-    requirements: '{{ stacks_src }}/requirements.txt'
-    virtualenv: '{{ stacks_src }}/env'
+    requirements: '{{ stacks_src_dir }}/requirements.txt'
+    virtualenv: '{{ stacks_src_dir }}/env'
     virtualenv_python: python3
     state: latest
 
 - name: Install the package
   command: env/bin/python setup.py develop
   args:
-    chdir: '{{ stacks_src }}'
-
-- name: Migrate the database
-  command: env/bin/alembic upgrade head
-  args:
-    chdir: '{{ stacks_src }}'
+    chdir: '{{ stacks_src_dir }}'

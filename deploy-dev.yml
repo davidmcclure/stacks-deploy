@@ -9,4 +9,4 @@
     - cluster
 
   roles:
-    - role: stacks
+    - role: stacks-dev

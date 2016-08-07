@@ -58,3 +58,8 @@
   command: env/bin/python setup.py develop
   args:
     chdir: '{{ stacks_dirs.src }}'
+
+- name: Create the database
+  command: env/bin/inv init_db
+  args:
+    chdir: '{{ stacks_dirs.src }}'

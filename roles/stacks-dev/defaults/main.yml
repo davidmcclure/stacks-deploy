@@ -1,6 +1,5 @@
 ---
 
-
 stacks_repo: git@github.com:davidmcclure/stacks.git
 stacks_branch: master
 

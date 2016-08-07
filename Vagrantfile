@@ -18,7 +18,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = 'centos/6'
+  config.vm.box = 'ubuntu/trusty64'
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -81,7 +81,7 @@ Vagrant.configure(2) do |config|
     v.memory = 4096
   end
 
-  config.vm.define 'web' do |box|
+  config.vm.define 'cluster' do |box|
 
     # Forward ports.
     for i in 8000..8010
@@ -100,8 +100,7 @@ Vagrant.configure(2) do |config|
     ansible.inventory_filename = 'inventory'
 
     ansible.groups = {
-      'tag_stacks' => ['web'],
-      "tag_context_#{local['ec2_context']}" => ['web'],
+      'tag_stacks' => ['cluster'],
     }
 
   end

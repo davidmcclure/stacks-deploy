@@ -6,9 +6,7 @@
     - vars/local.yml
 
   hosts:
-    - tag_stacks:&tag_context_{{ ec2_context }}
+    - cluster
 
   roles:
-
     - role: stacks
-      tags: stacks

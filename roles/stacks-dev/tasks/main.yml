@@ -7,15 +7,28 @@
     update_cache: yes
     state: latest
   with_items:
+
     - htop
     - git
+
+    # python
     - python3-dev
+    - libboost-python-dev
     - python-virtualenv
     - libpq-dev
+
+    # lxml
     - libxslt1-dev
     - libxml2-dev
+
+    # sqlite
     - sqlite3
     - libsqlite3-dev
+
+    # mpi
+    - libcr-dev
+    - mpich2
+    - mpich2-doc
 
 - name: Create the project directories
   become: yes

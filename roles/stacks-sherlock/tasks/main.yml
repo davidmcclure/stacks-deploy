@@ -21,14 +21,12 @@
     - stacks
     - stacks.test
 
-#- name: Install pip dependencies
-  #pip:
-    #requirements: '{{ stacks_dirs.src }}/requirements.txt'
-    #virtualenv: '{{ stacks_dirs.src }}/env'
-    #virtualenv_python: python3
-    #state: latest
+- name: Install the package
+  command: '{{ stacks_dirs.src }}/bin/setup-sherlock'
+  args:
+    chdir: '{{ stacks_dirs.src }}'
 
-#- name: Install the package
-  #command: env/bin/python setup.py develop
-  #args:
-    #chdir: '{{ stacks_dirs.src }}'
+- name: Configure .bashrc
+  lineinfile:
+    dest: /home/{{ ansible_ssh_user }}/.bashrc
+    line: export STACKS_CONFIG={{ stacks_dirs.cfg }}

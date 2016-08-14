@@ -1,0 +1,34 @@
+---
+
+- name: Create the project directories
+  file:
+    path: '{{ item.value }}'
+    state: directory
+  with_dict: '{{ stacks_dirs }}'
+
+- name: Pull the source code
+  git:
+    repo: '{{ stacks_repo }}'
+    version: '{{ stacks_branch }}'
+    dest: '{{ stacks_dirs.src }}'
+    accept_hostkey: yes
+
+- name: Push the config files
+  template:
+    src: stacks/{{ item }}.yml.j2
+    dest: '{{ stacks_dirs.cfg }}/{{ item }}.yml'
+  with_items:
+    - stacks
+    - stacks.test
+
+#- name: Install pip dependencies
+  #pip:
+    #requirements: '{{ stacks_dirs.src }}/requirements.txt'
+    #virtualenv: '{{ stacks_dirs.src }}/env'
+    #virtualenv_python: python3
+    #state: latest
+
+#- name: Install the package
+  #command: env/bin/python setup.py develop
+  #args:
+    #chdir: '{{ stacks_dirs.src }}'

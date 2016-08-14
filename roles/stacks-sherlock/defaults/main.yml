@@ -1,0 +1,14 @@
+---
+
+stacks_repo: git@github.com:davidmcclure/stacks.git
+stacks_branch: master
+
+stacks_group: malgeehe
+
+stacks_dirs:
+  cfg: /scratch/PI/malgeehe/config/stacks
+  src: /scratch/PI/malgeehe/code/stacks
+  raw: /scratch/PI/malgeehe/data/stacks/raw
+  ext: /scratch/PI/malgeehe/data/stacks/ext
+
+stacks_db: /scratch/PI/malgeehe/data/stacks/metadata.db

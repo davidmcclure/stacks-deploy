@@ -37,7 +37,7 @@
     group: '{{ ansible_ssh_user }}'
     owner: '{{ ansible_ssh_user }}'
     state: directory
-  with_dict: stacks_dirs
+  with_dict: '{{ stacks_dirs }}'
 
 - name: Create the config directory
   become: yes

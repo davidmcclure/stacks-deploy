@@ -16,7 +16,7 @@
 - name: Push the config files
   template:
     src: stacks/{{ item }}.yml.j2
-    dest: '{{ stacks_dirs.cfg }}/{{ item }}.yml'
+    dest: '{{ stacks_dirs.config }}/{{ item }}.yml'
   with_items:
     - stacks
     - stacks.test
@@ -29,4 +29,4 @@
 - name: Configure .bashrc
   lineinfile:
     dest: /home/{{ ansible_ssh_user }}/.bashrc
-    line: export STACKS_CONFIG={{ stacks_dirs.cfg }}
+    line: export STACKS_CONFIG={{ stacks_dirs.config }}

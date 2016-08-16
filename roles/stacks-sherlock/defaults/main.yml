@@ -8,7 +8,34 @@ stacks_group: malgeehe
 stacks_dirs:
   src: /share/PI/malgeehe/code/stacks
   config: /share/PI/malgeehe/config/stacks
+  sbatch: /share/PI/malgeehe/sbatch/stacks
   raw: /scratch/PI/malgeehe/data/stacks/raw
   ext: /scratch/PI/malgeehe/data/stacks/ext
 
 stacks_db: /scratch/PI/malgeehe/data/stacks/metadata.db
+
+stacks_sbatch:
+
+  - name: ext-litlab-c20
+    time: 00:10:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
+
+  - name: ext-litlab-suspense
+    time: 00:10:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
+
+  - name: ext-chicago
+    time: 00:20:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
+
+  - name: ext-gail-amfic
+    time: 01:00:00
+    nodes: 1
+    tasks: 16
+    mem: 64000

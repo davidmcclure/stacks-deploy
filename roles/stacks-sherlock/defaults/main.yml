@@ -29,7 +29,7 @@ stacks_sbatch:
     mem: 4000
 
   - name: ext-chicago
-    time: 00:20:00
+    time: 00:30:00
     nodes: 1
     tasks: 1
     mem: 4000

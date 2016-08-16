@@ -6,8 +6,8 @@ stacks_branch: master
 stacks_group: malgeehe
 
 stacks_dirs:
-  cfg: /scratch/PI/malgeehe/config/stacks
-  src: /scratch/PI/malgeehe/code/stacks
+  cfg: /share/PI/malgeehe/config/stacks
+  src: /share/PI/malgeehe/code/stacks
   raw: /scratch/PI/malgeehe/data/stacks/raw
   ext: /scratch/PI/malgeehe/data/stacks/ext
 

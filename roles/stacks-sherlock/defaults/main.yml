@@ -39,3 +39,48 @@ stacks_sbatch:
     nodes: 3
     tasks: 16
     mem: 64000
+
+  # dev
+  - name: ext-bpo
+    time: 00:10:00
+    nodes: 1
+    tasks: 16
+    mem: 64000
+
+  - name: ext-dime-westerns
+    time: 00:10:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
+
+  # dev
+  - name: ext-price-lab
+    time: 00:10:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
+
+  # dev
+  - name: ext-chadh-drama
+    time: 00:10:00
+    nodes: 1
+    tasks: 16
+    mem: 64000
+
+  # dev
+  - name: ext-chadh-fiction
+    time: 00:10:00
+    nodes: 1
+    tasks: 16
+    mem: 64000
+
+  # dev
+  - name: ext-chadh-poetry
+    time: 00:10:00
+    nodes: 1
+    tasks: 16
+    mem: 64000
+
+  #- name: ext-ecco
+  #- name: ext-eebo
+  #- name: ext-ncco

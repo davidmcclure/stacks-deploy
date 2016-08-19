@@ -36,7 +36,7 @@ stacks_sbatch:
 
   - name: ext-gail-amfic
     time: 01:00:00
-    nodes: 3
+    nodes: 6
     tasks: 16
     mem: 64000
 

@@ -76,7 +76,6 @@ stacks_sbatch:
     tasks: 16
     mem: 64000
 
-  # dev
   - name: ext-eebo
     time: 00:20:00
     nodes: 1
@@ -84,5 +83,4 @@ stacks_sbatch:
     mem: 64000
 
   #- name: ext-ecco
-  #- name: ext-eebo
   #- name: ext-ncco

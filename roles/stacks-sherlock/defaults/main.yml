@@ -88,9 +88,8 @@ stacks_sbatch:
     tasks: 16
     mem: 64000
 
-  # dev
   - name: ext-ncco
-    time: 00:20:00
-    nodes: 1
+    time: 03:00:00
+    nodes: 16
     tasks: 16
     mem: 64000

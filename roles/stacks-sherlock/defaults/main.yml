@@ -83,8 +83,8 @@ stacks_sbatch:
     mem: 64000
 
   - name: ext-ecco
-    time: 00:20:00
-    nodes: 1
+    time: 10:00:00
+    nodes: 16
     tasks: 16
     mem: 64000
 

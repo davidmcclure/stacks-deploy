@@ -59,23 +59,20 @@ stacks_sbatch:
     tasks: 1
     mem: 4000
 
-  # dev
   - name: ext-chadh-drama
-    time: 00:10:00
+    time: 00:20:00
     nodes: 1
     tasks: 16
     mem: 64000
 
-  # dev
   - name: ext-chadh-fiction
-    time: 00:10:00
+    time: 00:20:00
     nodes: 1
     tasks: 16
     mem: 64000
 
-  # dev
   - name: ext-chadh-poetry
-    time: 00:10:00
+    time: 00:20:00
     nodes: 1
     tasks: 16
     mem: 64000

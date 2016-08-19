@@ -82,5 +82,10 @@ stacks_sbatch:
     tasks: 16
     mem: 64000
 
-  #- name: ext-ecco
+  - name: ext-ecco
+    time: 00:20:00
+    nodes: 1
+    tasks: 16
+    mem: 64000
+
   #- name: ext-ncco

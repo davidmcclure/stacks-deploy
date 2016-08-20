@@ -31,7 +31,7 @@ stacks_sbatch:
   - name: ext-chicago
     time: 00:30:00
     nodes: 1
-    tasks: 1
+    tasks: 2
     mem: 8000
 
   - name: ext-gail-amfic

@@ -89,14 +89,20 @@ stacks_sbatch:
     mem: 64000
 
   - name: ext-ncco
-    time: 03:00:00
-    nodes: 16
+    time: 02:00:00
+    nodes: 6
     tasks: 16
     mem: 64000
 
+  #- name: ext-ncco
+    #time: 06:00:00
+    #nodes: 8
+    #tasks: 16
+    #mem: 64000
+
   # dev
-  - name: load-metadata
-    time: 00:10:00
-    nodes: 1
-    tasks: 8
-    mem: 32000
+  #- name: load-metadata
+    #time: 00:10:00
+    #nodes: 1
+    #tasks: 1
+    #mem: 4000

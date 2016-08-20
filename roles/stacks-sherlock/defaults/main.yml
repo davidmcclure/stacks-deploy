@@ -93,3 +93,10 @@ stacks_sbatch:
     nodes: 16
     tasks: 16
     mem: 64000
+
+  # dev
+  - name: load-metadata
+    time: 00:10:00
+    nodes: 1
+    tasks: 8
+    mem: 32000

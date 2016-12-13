@@ -96,7 +96,7 @@ stacks_sbatch:
 
   # dev
   - name: load-metadata
-    time: 03:00:00
-    nodes: 2
-    tasks: 16
-    mem: 64000
+    time: 01:00:00
+    nodes: 1
+    tasks: 1
+    mem: 4000

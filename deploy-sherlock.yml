@@ -2,11 +2,7 @@
 
 - name: Deploy to Sherlock
 
-  vars_files:
-    - vars/local.yml
-
-  hosts:
-    - sherlock
+  hosts: sherlock
 
   roles:
-    - role: stacks-sherlock
+    - stacks-sherlock

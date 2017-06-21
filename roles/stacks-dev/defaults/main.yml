@@ -1,7 +1,7 @@
 ---
 
 stacks_repo: git@github.com:davidmcclure/stacks.git
-stacks_branch: master
+stacks_branch: v2
 
 stacks_dirs:
   src: /opt/stacks

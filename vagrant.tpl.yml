@@ -1,0 +1,6 @@
+---
+
+# Rename this file to vagrant.yml and provide Vagrant directory mounts.
+
+stacks_sync_code: null
+stacks_sync_data: null

@@ -2,11 +2,7 @@
 
 - name: Deploy a Vagrant box
 
-  vars_files:
-    - vars/local.yml
-
-  hosts:
-    - cluster
+  hosts: cluster
 
   roles:
-    - role: stacks-dev
+    - stacks-dev

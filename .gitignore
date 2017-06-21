@@ -2,7 +2,7 @@
 /.vagrant
 /env
 
-/vars/local.yml
+/vagrant.yml
 /ansible.cfg
 
 *.retry

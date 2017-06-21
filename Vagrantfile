@@ -4,7 +4,7 @@
 require 'yaml'
 
 # Load local overrides.
-local = YAML.load_file('vars/local.yml')
+local = YAML.load_file('vagrant.yml')
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for

@@ -35,4 +35,4 @@
 - name: Configure .bashrc
   lineinfile:
     dest: /home/{{ ansible_ssh_user }}/.bashrc
-    line: export STACKS_CONFIG={{ stacks_dirs.config }}
+    line: export STACKS_CONFIG_DIRS={{ stacks_dirs.config }}

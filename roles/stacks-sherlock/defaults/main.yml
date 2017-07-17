@@ -16,86 +16,86 @@ stacks_db: /scratch/PI/malgeehe/data/stacks/metadata.db
 
 stacks_sbatch:
 
-  - name: ext-litlab-c20
+  - name: ext-amfic
     time: 00:10:00
     nodes: 1
     tasks: 1
     mem: 4000
 
-  - name: ext-litlab-suspense
-    time: 00:10:00
-    nodes: 1
-    tasks: 1
-    mem: 4000
+  #- name: ext-litlab-c20
+    #time: 00:10:00
+    #nodes: 1
+    #tasks: 1
+    #mem: 4000
 
-  - name: ext-chicago
-    time: 00:30:00
-    nodes: 1
-    tasks: 2
-    mem: 8000
+  #- name: ext-litlab-suspense
+    #time: 00:10:00
+    #nodes: 1
+    #tasks: 1
+    #mem: 4000
 
-  - name: ext-gail-amfic
-    time: 01:00:00
-    nodes: 6
-    tasks: 16
-    mem: 64000
+  #- name: ext-chicago
+    #time: 00:30:00
+    #nodes: 1
+    #tasks: 2
+    #mem: 8000
 
-  - name: ext-dime-westerns
-    time: 00:10:00
-    nodes: 1
-    tasks: 1
-    mem: 4000
+  #- name: ext-dime-westerns
+    #time: 00:10:00
+    #nodes: 1
+    #tasks: 1
+    #mem: 4000
 
-  - name: ext-price-lab
-    time: 00:10:00
-    nodes: 1
-    tasks: 1
-    mem: 4000
+  #- name: ext-price-lab
+    #time: 00:10:00
+    #nodes: 1
+    #tasks: 1
+    #mem: 4000
 
-  - name: ext-chadh-drama
-    time: 00:20:00
-    nodes: 1
-    tasks: 16
-    mem: 64000
+  #- name: ext-chadh-drama
+    #time: 00:20:00
+    #nodes: 1
+    #tasks: 16
+    #mem: 64000
 
-  - name: ext-chadh-fiction
-    time: 00:20:00
-    nodes: 1
-    tasks: 16
-    mem: 64000
+  #- name: ext-chadh-fiction
+    #time: 00:20:00
+    #nodes: 1
+    #tasks: 16
+    #mem: 64000
 
-  - name: ext-chadh-poetry
-    time: 00:20:00
-    nodes: 1
-    tasks: 16
-    mem: 64000
+  #- name: ext-chadh-poetry
+    #time: 00:20:00
+    #nodes: 1
+    #tasks: 16
+    #mem: 64000
 
-  - name: ext-bpo
-    time: 03:00:00
-    nodes: 16
-    tasks: 16
-    mem: 64000
+  #- name: ext-bpo
+    #time: 03:00:00
+    #nodes: 16
+    #tasks: 16
+    #mem: 64000
 
-  - name: ext-eebo
-    time: 00:20:00
-    nodes: 1
-    tasks: 16
-    mem: 64000
+  #- name: ext-eebo
+    #time: 00:20:00
+    #nodes: 1
+    #tasks: 16
+    #mem: 64000
 
-  - name: ext-ecco
-    time: '10:00:00'
-    nodes: 16
-    tasks: 16
-    mem: 64000
+  #- name: ext-ecco
+    #time: '10:00:00'
+    #nodes: 16
+    #tasks: 16
+    #mem: 64000
 
-  - name: ext-ncco
-    time: 03:00:00
-    nodes: 6
-    tasks: 16
-    mem: 64000
+  #- name: ext-ncco
+    #time: 03:00:00
+    #nodes: 6
+    #tasks: 16
+    #mem: 64000
 
-  - name: load-metadata
-    time: 05:00:00
-    nodes: 2
-    tasks: 16
-    mem: 64000
+  #- name: load-metadata
+    #time: 05:00:00
+    #nodes: 2
+    #tasks: 16
+    #mem: 64000

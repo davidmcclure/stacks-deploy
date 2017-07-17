@@ -78,20 +78,22 @@ Vagrant.configure(2) do |config|
   config.ssh.forward_agent = true
 
   config.vm.provider 'virtualbox' do |v|
-    v.memory = 4096
+    v.memory = 8000
   end
 
-  config.vm.define 'cluster' do |box|
+  config.vm.define 'cluster'
 
-    # Forward ports.
-    for i in 8000..8010
-      box.vm.network :forwarded_port, host: i, guest: i
-    end
+  #config.vm.define 'cluster' do |box|
 
-    # Assign IP for /etc/hosts.
-    box.vm.network :private_network, ip: '192.168.68.8'
+    ## Forward ports.
+    #for i in 8000..8010
+      #box.vm.network :forwarded_port, host: i, guest: i
+    #end
 
-  end
+    ## Assign IP for /etc/hosts.
+    #box.vm.network :private_network, ip: '192.168.68.8'
+
+  #end
 
   # Generate Ansible inventory.
   config.vm.provision :vai do |ansible|

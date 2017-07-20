@@ -32,7 +32,7 @@
     dest: '{{ stacks_dirs.sbatch }}/{{ item.name }}.sbatch'
   with_items: '{{ stacks_sbatch }}'
 
-- name: Configure .bashrc
-  lineinfile:
-    dest: /home/{{ ansible_ssh_user }}/.bashrc
-    line: export STACKS_CONFIG_DIRS={{ stacks_dirs.config }}
+#- name: Configure .bashrc
+  #lineinfile:
+    #dest: /home/{{ ansible_ssh_user }}/.bashrc
+    #line: export STACKS_CONFIG_DIRS={{ stacks_dirs.config }}

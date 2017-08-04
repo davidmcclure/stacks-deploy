@@ -28,6 +28,12 @@ stacks_sbatch:
     tasks: 16
     mem: 64000
 
+  - name: load-metadata
+    time: 05:00:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
+
   #- name: ext-litlab-c20
     #time: 00:10:00
     #nodes: 1

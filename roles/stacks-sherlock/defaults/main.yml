@@ -28,12 +28,11 @@ stacks_sbatch:
     tasks: 16
     mem: 64000
 
-  # test
   - name: ext-ncco
-    time: 00:30:00
-    nodes: 1
-    tasks: 1
-    mem: 4000
+    time: 04:00:00
+    nodes: 3
+    tasks: 16
+    mem: 64000
 
   - name: load-metadata
     time: 05:00:00

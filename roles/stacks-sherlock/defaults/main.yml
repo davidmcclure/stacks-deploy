@@ -28,11 +28,19 @@ stacks_sbatch:
     tasks: 16
     mem: 64000
 
+  # 43637 / 44448
   - name: ext-ncco
     time: 04:00:00
     nodes: 4
     tasks: 16
     mem: 64000
+
+  # test
+  - name: ext-eebo
+    time: 00:20:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
 
   - name: load-metadata
     time: 05:00:00
@@ -97,23 +105,5 @@ stacks_sbatch:
   #- name: ext-eebo
     #time: 00:20:00
     #nodes: 1
-    #tasks: 16
-    #mem: 64000
-
-  #- name: ext-ecco
-    #time: '10:00:00'
-    #nodes: 16
-    #tasks: 16
-    #mem: 64000
-
-  #- name: ext-ncco
-    #time: 03:00:00
-    #nodes: 6
-    #tasks: 16
-    #mem: 64000
-
-  #- name: load-metadata
-    #time: 05:00:00
-    #nodes: 2
     #tasks: 16
     #mem: 64000

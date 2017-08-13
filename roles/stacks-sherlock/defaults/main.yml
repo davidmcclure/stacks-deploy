@@ -35,12 +35,11 @@ stacks_sbatch:
     tasks: 16
     mem: 64000
 
-  # test
   - name: ext-eebo
-    time: 00:20:00
+    time: 02:00:00
     nodes: 1
-    tasks: 1
-    mem: 4000
+    tasks: 16
+    mem: 64000
 
   - name: load-metadata
     time: 05:00:00

@@ -47,35 +47,11 @@ stacks_sbatch:
     tasks: 1
     mem: 4000
 
-  #- name: ext-litlab-c20
-    #time: 00:10:00
-    #nodes: 1
-    #tasks: 1
-    #mem: 4000
-
-  #- name: ext-litlab-suspense
-    #time: 00:10:00
-    #nodes: 1
-    #tasks: 1
-    #mem: 4000
-
-  #- name: ext-chicago
-    #time: 00:30:00
-    #nodes: 1
-    #tasks: 2
-    #mem: 8000
-
-  #- name: ext-dime-westerns
-    #time: 00:10:00
-    #nodes: 1
-    #tasks: 1
-    #mem: 4000
-
-  #- name: ext-price-lab
-    #time: 00:10:00
-    #nodes: 1
-    #tasks: 1
-    #mem: 4000
+  - name: ext-bpo
+    time: 01:00:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
 
   #- name: ext-chadh-drama
     #time: 00:20:00
@@ -90,18 +66,6 @@ stacks_sbatch:
     #mem: 64000
 
   #- name: ext-chadh-poetry
-    #time: 00:20:00
-    #nodes: 1
-    #tasks: 16
-    #mem: 64000
-
-  #- name: ext-bpo
-    #time: 03:00:00
-    #nodes: 16
-    #tasks: 16
-    #mem: 64000
-
-  #- name: ext-eebo
     #time: 00:20:00
     #nodes: 1
     #tasks: 16

@@ -50,8 +50,8 @@ stacks_sbatch:
   - name: ext-bpo
     time: 01:00:00
     nodes: 1
-    tasks: 1
-    mem: 4000
+    tasks: 4
+    mem: 16000
 
   #- name: ext-chadh-drama
     #time: 00:20:00

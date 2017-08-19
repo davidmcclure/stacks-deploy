@@ -54,7 +54,7 @@ stacks_sbatch:
     mem: 64000
 
   - name: ext-chadh-drama
-    time: 00:20:00
+    time: 00:30:00
     nodes: 1
     tasks: 16
     mem: 64000

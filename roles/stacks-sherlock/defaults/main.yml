@@ -65,8 +65,9 @@ stacks_sbatch:
     tasks: 16
     mem: 64000
 
-  #- name: ext-chadh-poetry
-    #time: 00:20:00
-    #nodes: 1
-    #tasks: 16
-    #mem: 64000
+  # test
+  - name: ext-chadh-poetry
+    time: 00:20:00
+    nodes: 1
+    tasks: 1
+    mem: 4000
